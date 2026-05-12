@@ -78,7 +78,7 @@
 }
 .deco-card:hover {
   transform: translateY(-4px);
-  box-shadow: 0 12px 32px rgba(0,0,0,0.10);
+  box-shadow: 0 14px 36px rgba(0,0,0,0.45);
 }
 
 .deco-card-img {
@@ -91,8 +91,12 @@
   height: 100%;
   object-fit: cover;
   transition: transform 0.6s var(--ease-out);
+  filter: brightness(0.92) saturate(0.88);
 }
-.deco-card:hover .deco-card-img img { transform: scale(1.06); }
+.deco-card:hover .deco-card-img img {
+  transform: scale(1.06);
+  filter: brightness(1) saturate(1);
+}
 
 .deco-badge {
   position: absolute;
@@ -101,8 +105,8 @@
   font-family: var(--font-sans-jp);
   font-size: 0.68rem;
   letter-spacing: 0.08em;
-  color: #FFFFFF;
-  background: var(--accent);
+  color: #F0EEEE;
+  background: var(--brown);
   padding: 4px 10px;
   border-radius: 1px;
 }
@@ -130,7 +134,7 @@
 
 .deco-seasonal {
   font-size: 0.74rem;
-  color: var(--accent);
+  color: var(--brown-lt);
   letter-spacing: 0.04em;
   margin-top: 6px;
 }
@@ -167,19 +171,19 @@
 
 /* Category backgrounds using photos */
 .other-card-img--yakigashi {
-  background: linear-gradient(160deg, rgba(6,6,6,0.2) 0%, rgba(6,6,6,0.70) 100%),
+  background: linear-gradient(160deg, rgba(6,6,6,0.3) 0%, rgba(6,6,6,0.75) 100%),
               url('img/kogane_roll.jpg') center/cover no-repeat;
 }
 .other-card-img--tart {
-  background: linear-gradient(160deg, rgba(6,6,6,0.2) 0%, rgba(6,6,6,0.70) 100%),
+  background: linear-gradient(160deg, rgba(6,6,6,0.3) 0%, rgba(6,6,6,0.75) 100%),
               url('img/deco/fruits_garden_tart.jpg') center/cover no-repeat;
 }
 .other-card-img--gelato {
-  background: linear-gradient(160deg, rgba(6,6,6,0.2) 0%, rgba(6,6,6,0.70) 100%),
+  background: linear-gradient(160deg, rgba(6,6,6,0.3) 0%, rgba(6,6,6,0.75) 100%),
               url('img/photo_6.jpg') center/cover no-repeat;
 }
 .other-card-img--confiture {
-  background: linear-gradient(160deg, rgba(6,6,6,0.2) 0%, rgba(6,6,6,0.70) 100%),
+  background: linear-gradient(160deg, rgba(6,6,6,0.3) 0%, rgba(6,6,6,0.75) 100%),
               url('img/photo_7.jpg') center/cover no-repeat;
 }
 
@@ -192,7 +196,7 @@
   font-family: var(--font-en);
   font-size: 0.72rem;
   letter-spacing: 0.3em;
-  color: var(--accent-lt);
+  color: var(--accent);
   text-transform: uppercase;
   margin-bottom: 6px;
 }
@@ -202,7 +206,7 @@
   font-weight: 400;
   font-size: 1.15rem;
   letter-spacing: 0.12em;
-  color: #FFFFFF;
+  color: var(--text-main);
 }
 
 .other-note {
