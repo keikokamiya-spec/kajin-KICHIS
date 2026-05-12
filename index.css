@@ -1,23 +1,23 @@
 /* ============================================================
    菓人 KICHISE — Main Stylesheet
-   Design: Dark / Silver Accent
+   Design: White / Warm Champagne Gold
    ============================================================ */
 
 @import url('https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,300;0,400;0,600;1,300;1,400&family=Noto+Sans+JP:wght@300;400;500&family=Noto+Serif+JP:wght@300;400;600&display=swap');
 
 /* ---- Custom Properties ---- */
 :root {
-  --bg-primary:    #0C0C0C;
-  --bg-secondary:  #111111;
-  --bg-card:       #181818;
-  --accent:        #B4B4B4;
-  --accent-lt:     #D8D8D8;
-  --accent-bright: #EFEFEF;
-  --text-main:     #F2F2F2;
-  --text-sub:      #8A8A8A;
-  --text-muted:    #4A4A4A;
-  --border:        #252525;
-  --border-lt:     #333333;
+  --bg-primary:    #FFFFFF;
+  --bg-secondary:  #F7F4EF;
+  --bg-card:       #FFFFFF;
+  --accent:        #B8906A;
+  --accent-lt:     #C9A47C;
+  --accent-bright: #7A5C3C;
+  --text-main:     #1C1814;
+  --text-sub:      #6B5C4E;
+  --text-muted:    #A8988A;
+  --border:        #EAE4DB;
+  --border-lt:     #D4CAC0;
 
   --font-serif-jp: 'Noto Serif JP', serif;
   --font-sans-jp:  'Noto Sans JP', sans-serif;
@@ -39,22 +39,6 @@ html { scroll-behavior: smooth; }
 body {
   font-family: var(--font-sans-jp);
   background-color: var(--bg-primary);
-  /* subtle silver grain texture */
-  background-image:
-    repeating-linear-gradient(
-      90.5deg,
-      transparent 0px, transparent 4px,
-      rgba(220,220,220,0.012) 4px, rgba(220,220,220,0.012) 5px,
-      transparent 5px, transparent 14px,
-      rgba(0,0,0,0.06) 14px, rgba(0,0,0,0.06) 16px
-    ),
-    repeating-linear-gradient(
-      89deg,
-      transparent 0px, transparent 32px,
-      rgba(200,200,200,0.015) 32px, rgba(200,200,200,0.015) 34px,
-      transparent 34px, transparent 68px,
-      rgba(0,0,0,0.045) 68px, rgba(0,0,0,0.045) 70px
-    );
   color: var(--text-main);
   line-height: 1.9;
   overflow-x: hidden;
@@ -136,7 +120,7 @@ a   { text-decoration: none; color: inherit; }
   transition: background 0.4s ease, box-shadow 0.4s ease;
 }
 #header.scrolled {
-  background: rgba(10, 10, 10, 0.96);
+  background: rgba(255, 255, 255, 0.97);
   backdrop-filter: blur(10px);
   -webkit-backdrop-filter: blur(10px);
   box-shadow: 0 1px 0 var(--border);
@@ -173,8 +157,10 @@ a   { text-decoration: none; color: inherit; }
   font-size: 1.1rem;
   font-weight: 400;
   letter-spacing: 0.1em;
-  color: var(--text-main);
+  color: #FFFFFF;
+  transition: color 0.4s ease;
 }
+#header.scrolled .logo-jp { color: var(--text-main); }
 
 /* Global Nav */
 .global-nav ul {
@@ -186,11 +172,12 @@ a   { text-decoration: none; color: inherit; }
   font-size: 0.82rem;
   font-weight: 300;
   letter-spacing: 0.08em;
-  color: var(--text-sub);
+  color: rgba(255,255,255,0.75);
   position: relative;
   padding-bottom: 2px;
   transition: color 0.3s;
 }
+#header.scrolled .nav-link { color: var(--text-sub); }
 .nav-link::after {
   content: '';
   position: absolute;
@@ -200,6 +187,7 @@ a   { text-decoration: none; color: inherit; }
   transition: width 0.3s var(--ease-out);
 }
 .nav-link:hover { color: var(--accent-lt); }
+#header.scrolled .nav-link:hover { color: var(--accent); }
 .nav-link:hover::after { width: 100%; }
 
 /* Header Right */
@@ -217,15 +205,19 @@ a   { text-decoration: none; color: inherit; }
   font-family: var(--font-sans-jp);
   font-size: 0.95rem;
   letter-spacing: 0.06em;
-  color: var(--accent);
-  border: 1px solid var(--border-lt);
+  color: rgba(255,255,255,0.9);
+  border: 1px solid rgba(255,255,255,0.35);
   padding: 8px 18px;
   border-radius: var(--radius);
   transition: background 0.3s, color 0.3s, border-color 0.3s;
 }
+#header.scrolled .btn-tel {
+  color: var(--accent);
+  border-color: var(--border-lt);
+}
 .btn-tel:hover {
   background: var(--accent);
-  color: var(--bg-primary);
+  color: #FFFFFF;
   border-color: var(--accent);
 }
 
@@ -246,10 +238,11 @@ a   { text-decoration: none; color: inherit; }
   display: block;
   width: 100%;
   height: 1px;
-  background: var(--text-main);
-  transition: transform 0.35s var(--ease-out), opacity 0.35s;
+  background: #FFFFFF;
+  transition: transform 0.35s var(--ease-out), opacity 0.35s, background 0.4s;
   transform-origin: center;
 }
+#header.scrolled .hamburger span { background: var(--text-main); }
 .hamburger.active span:nth-child(1) { transform: translateY(6px) rotate(45deg); }
 .hamburger.active span:nth-child(2) { opacity: 0; }
 .hamburger.active span:nth-child(3) { transform: translateY(-6px) rotate(-45deg); }
@@ -259,7 +252,7 @@ a   { text-decoration: none; color: inherit; }
   position: fixed;
   inset: 0;
   z-index: 999;
-  background: rgba(8, 8, 8, 0.97);
+  background: rgba(255, 252, 248, 0.98);
   display: flex;
   align-items: center;
   justify-content: center;
@@ -334,9 +327,9 @@ body.nav-open { overflow: hidden; }
   inset: 0;
   background: linear-gradient(
     to bottom,
-    rgba(8, 8, 8, 0.40) 0%,
-    rgba(8, 8, 8, 0.58) 55%,
-    rgba(8, 8, 8, 0.82) 100%
+    rgba(15, 10, 5, 0.30) 0%,
+    rgba(15, 10, 5, 0.50) 55%,
+    rgba(15, 10, 5, 0.72) 100%
   );
 }
 
@@ -350,7 +343,7 @@ body.nav-open { overflow: hidden; }
   font-family: var(--font-en);
   font-size: 0.85rem;
   letter-spacing: 0.45em;
-  color: var(--accent);
+  color: var(--accent-lt);
   text-transform: uppercase;
   margin-bottom: 22px;
 }
@@ -361,7 +354,7 @@ body.nav-open { overflow: hidden; }
   font-size: clamp(1.9rem, 4.5vw, 3.2rem);
   line-height: 1.7;
   letter-spacing: 0.12em;
-  color: var(--text-main);
+  color: #FFFFFF;
   margin-bottom: 18px;
 }
 
@@ -370,7 +363,7 @@ body.nav-open { overflow: hidden; }
   font-weight: 300;
   font-size: clamp(0.88rem, 1.8vw, 1.05rem);
   letter-spacing: 0.2em;
-  color: var(--text-sub);
+  color: rgba(255,255,255,0.7);
   margin-bottom: 60px;
 }
 
@@ -379,7 +372,7 @@ body.nav-open { overflow: hidden; }
   flex-direction: column;
   align-items: center;
   gap: 8px;
-  color: var(--accent);
+  color: var(--accent-lt);
   font-family: var(--font-en);
   font-size: 0.68rem;
   letter-spacing: 0.32em;
@@ -415,13 +408,7 @@ body.nav-open { overflow: hidden; }
   position: relative;
   transition: background 0.3s;
 }
-.concept-card:hover { background: #1E1E1E; }
-
-/* 4th & 5th cards centered */
-.concept-card:nth-child(4),
-.concept-card:nth-child(5) {
-  grid-column: auto;
-}
+.concept-card:hover { background: #FAF8F5; }
 
 .concept-num {
   font-family: var(--font-en);
@@ -474,7 +461,7 @@ body.nav-open { overflow: hidden; }
 .instagram-overlay {
   position: absolute;
   inset: 0;
-  background: rgba(6, 6, 6, 0.85);
+  background: rgba(15, 8, 4, 0.78);
 }
 
 .instagram-inner {
@@ -483,13 +470,14 @@ body.nav-open { overflow: hidden; }
   text-align: center;
 }
 
-.section-head.light .section-title { color: var(--text-main); }
+.section-head.light .section-en  { color: var(--accent-lt); }
+.section-head.light .section-title { color: #FFFFFF; }
 
 .instagram-lead {
   font-family: var(--font-serif-jp);
   font-weight: 300;
   font-size: 1rem;
-  color: var(--text-sub);
+  color: rgba(255,255,255,0.7);
   line-height: 2.1;
   margin-bottom: 44px;
   letter-spacing: 0.05em;
@@ -502,11 +490,11 @@ body.nav-open { overflow: hidden; }
   font-family: var(--font-sans-jp);
   font-size: 0.9rem;
   letter-spacing: 0.1em;
-  color: var(--bg-primary);
-  background: var(--accent-lt);
+  color: #FFFFFF;
+  background: var(--accent);
   padding: 16px 44px;
   border-radius: var(--radius);
-  transition: background 0.3s, color 0.3s;
+  transition: background 0.3s;
 }
 .btn-instagram:hover {
   background: var(--accent-bright);
@@ -544,7 +532,7 @@ body.nav-open { overflow: hidden; }
   font-size: 1.05rem;
   font-weight: 400;
   letter-spacing: 0.12em;
-  color: var(--accent-lt);
+  color: var(--text-main);
   margin-bottom: 28px;
   padding-bottom: 18px;
   border-bottom: 1px solid var(--border);
@@ -563,7 +551,7 @@ body.nav-open { overflow: hidden; }
   margin-top: 32px;
   margin-bottom: 32px;
   padding: 24px 28px;
-  background: var(--bg-card);
+  background: var(--bg-secondary);
   border-left: 2px solid var(--accent);
 }
 
@@ -709,7 +697,7 @@ body.nav-open { overflow: hidden; }
 .access-tel {
   font-size: 1.1rem;
   letter-spacing: 0.08em;
-  color: var(--accent-lt);
+  color: var(--accent);
   transition: opacity 0.3s;
 }
 .access-tel:hover { opacity: 0.75; }
@@ -736,7 +724,7 @@ body.nav-open { overflow: hidden; }
   overflow: hidden;
 }
 .access-map-wrap iframe {
-  filter: grayscale(60%) invert(88%) hue-rotate(180deg);
+  filter: grayscale(25%);
 }
 
 
@@ -777,7 +765,7 @@ body.nav-open { overflow: hidden; }
 }
 .btn-recruit:hover {
   background: var(--accent);
-  color: var(--bg-primary);
+  color: #FFFFFF;
   border-color: var(--accent);
 }
 
@@ -786,8 +774,8 @@ body.nav-open { overflow: hidden; }
    FOOTER
    ============================================================ */
 .footer {
-  background: #080808;
-  border-top: 1px solid var(--border);
+  background: #1C1814;
+  border-top: 1px solid #2E2620;
   padding: 80px 0 40px;
 }
 
@@ -812,7 +800,7 @@ body.nav-open { overflow: hidden; }
   font-size: 1.35rem;
   font-weight: 300;
   letter-spacing: 0.18em;
-  color: var(--text-main);
+  color: #F2EDE8;
 }
 
 .footer-nav ul {
@@ -823,11 +811,11 @@ body.nav-open { overflow: hidden; }
 }
 .footer-nav a {
   font-size: 0.83rem;
-  color: var(--text-sub);
+  color: #8A7A6E;
   letter-spacing: 0.06em;
   transition: color 0.3s;
 }
-.footer-nav a:hover { color: var(--accent); }
+.footer-nav a:hover { color: var(--accent-lt); }
 
 .footer-info {
   display: flex;
@@ -840,7 +828,7 @@ body.nav-open { overflow: hidden; }
   gap: 8px;
   font-size: 1.2rem;
   letter-spacing: 0.08em;
-  color: var(--accent);
+  color: var(--accent-lt);
   transition: opacity 0.3s;
 }
 .footer-tel:hover { opacity: 0.75; }
@@ -848,15 +836,15 @@ body.nav-open { overflow: hidden; }
 .footer-address,
 .footer-hours {
   font-size: 0.8rem;
-  color: var(--text-muted);
+  color: #6A5A4E;
   line-height: 1.8;
 }
 
 .footer-copy {
   font-size: 0.72rem;
-  color: var(--text-muted);
+  color: #5A4A3E;
   letter-spacing: 0.06em;
-  border-top: 1px solid var(--border);
+  border-top: 1px solid #2E2620;
   padding-top: 32px;
   width: 100%;
   text-align: center;

@@ -78,7 +78,7 @@
 }
 .deco-card:hover {
   transform: translateY(-4px);
-  box-shadow: 0 14px 36px rgba(0,0,0,0.5);
+  box-shadow: 0 12px 32px rgba(0,0,0,0.10);
 }
 
 .deco-card-img {
@@ -101,7 +101,7 @@
   font-family: var(--font-sans-jp);
   font-size: 0.68rem;
   letter-spacing: 0.08em;
-  color: var(--bg-primary);
+  color: #FFFFFF;
   background: var(--accent);
   padding: 4px 10px;
   border-radius: 1px;
@@ -167,19 +167,19 @@
 
 /* Category backgrounds using photos */
 .other-card-img--yakigashi {
-  background: linear-gradient(160deg, rgba(6,6,6,0.3) 0%, rgba(6,6,6,0.75) 100%),
+  background: linear-gradient(160deg, rgba(6,6,6,0.2) 0%, rgba(6,6,6,0.70) 100%),
               url('img/kogane_roll.jpg') center/cover no-repeat;
 }
 .other-card-img--tart {
-  background: linear-gradient(160deg, rgba(6,6,6,0.3) 0%, rgba(6,6,6,0.75) 100%),
+  background: linear-gradient(160deg, rgba(6,6,6,0.2) 0%, rgba(6,6,6,0.70) 100%),
               url('img/deco/fruits_garden_tart.jpg') center/cover no-repeat;
 }
 .other-card-img--gelato {
-  background: linear-gradient(160deg, rgba(6,6,6,0.3) 0%, rgba(6,6,6,0.75) 100%),
+  background: linear-gradient(160deg, rgba(6,6,6,0.2) 0%, rgba(6,6,6,0.70) 100%),
               url('img/photo_6.jpg') center/cover no-repeat;
 }
 .other-card-img--confiture {
-  background: linear-gradient(160deg, rgba(6,6,6,0.3) 0%, rgba(6,6,6,0.75) 100%),
+  background: linear-gradient(160deg, rgba(6,6,6,0.2) 0%, rgba(6,6,6,0.70) 100%),
               url('img/photo_7.jpg') center/cover no-repeat;
 }
 
@@ -192,7 +192,7 @@
   font-family: var(--font-en);
   font-size: 0.72rem;
   letter-spacing: 0.3em;
-  color: var(--accent);
+  color: var(--accent-lt);
   text-transform: uppercase;
   margin-bottom: 6px;
 }
@@ -202,7 +202,7 @@
   font-weight: 400;
   font-size: 1.15rem;
   letter-spacing: 0.12em;
-  color: var(--text-main);
+  color: #FFFFFF;
 }
 
 .other-note {
