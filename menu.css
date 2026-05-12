@@ -1,0 +1,253 @@
+/* ============================================================
+   菓人 KICHISE — Menu Page Stylesheet
+   ============================================================ */
+
+/* ---- Nav active state ---- */
+.nav-link--active {
+  color: var(--accent-lt) !important;
+}
+.nav-link--active::after {
+  width: 100% !important;
+}
+
+/* ============================================================
+   PAGE HERO
+   ============================================================ */
+.page-hero {
+  padding-top: calc(var(--header-h) + 80px);
+  padding-bottom: 80px;
+  text-align: center;
+  background: var(--bg-secondary);
+  border-bottom: 1px solid var(--border);
+}
+
+.page-hero-en {
+  font-family: var(--font-en);
+  font-size: 0.82rem;
+  letter-spacing: 0.4em;
+  color: var(--accent);
+  text-transform: uppercase;
+  margin-bottom: 16px;
+}
+
+.page-hero-title {
+  font-family: var(--font-serif-jp);
+  font-weight: 300;
+  font-size: clamp(2rem, 5vw, 3rem);
+  letter-spacing: 0.2em;
+  color: var(--text-main);
+  margin-bottom: 24px;
+}
+
+/* ============================================================
+   DECORATION CAKES SECTION
+   ============================================================ */
+.section-deco {
+  padding: var(--section-py) 0;
+  background: var(--bg-primary);
+}
+
+.deco-note {
+  text-align: center;
+  font-size: 0.88rem;
+  color: var(--text-muted);
+  margin-bottom: 56px;
+  letter-spacing: 0.04em;
+}
+
+.deco-tel {
+  color: var(--accent);
+  margin-left: 8px;
+  transition: opacity 0.3s;
+}
+.deco-tel:hover { opacity: 0.75; }
+
+/* 3-column card grid */
+.deco-grid {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 32px 24px;
+}
+
+.deco-card {
+  background: var(--bg-card);
+  border: 1px solid var(--border);
+  border-radius: var(--radius);
+  overflow: hidden;
+  transition: transform 0.3s var(--ease-out), box-shadow 0.3s;
+}
+.deco-card:hover {
+  transform: translateY(-4px);
+  box-shadow: 0 14px 36px rgba(0,0,0,0.5);
+}
+
+.deco-card-img {
+  position: relative;
+  aspect-ratio: 4 / 3;
+  overflow: hidden;
+}
+.deco-card-img img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  transition: transform 0.6s var(--ease-out);
+}
+.deco-card:hover .deco-card-img img { transform: scale(1.06); }
+
+.deco-badge {
+  position: absolute;
+  top: 12px;
+  right: 12px;
+  font-family: var(--font-sans-jp);
+  font-size: 0.68rem;
+  letter-spacing: 0.08em;
+  color: var(--bg-primary);
+  background: var(--accent);
+  padding: 4px 10px;
+  border-radius: 1px;
+}
+
+.deco-card-body {
+  padding: 20px 20px 22px;
+}
+
+.deco-name {
+  font-family: var(--font-serif-jp);
+  font-weight: 400;
+  font-size: 1rem;
+  letter-spacing: 0.06em;
+  color: var(--text-main);
+  margin-bottom: 8px;
+  line-height: 1.55;
+}
+
+.deco-size {
+  font-size: 0.78rem;
+  color: var(--text-muted);
+  letter-spacing: 0.04em;
+  line-height: 1.6;
+}
+
+.deco-seasonal {
+  font-size: 0.74rem;
+  color: var(--accent);
+  letter-spacing: 0.04em;
+  margin-top: 6px;
+}
+
+/* ============================================================
+   OTHER PRODUCTS SECTION
+   ============================================================ */
+.section-other {
+  padding: var(--section-py) 0;
+  background: var(--bg-secondary);
+}
+
+.other-grid {
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  gap: 16px;
+  margin-bottom: 48px;
+}
+
+.other-card {
+  border-radius: var(--radius);
+  overflow: hidden;
+}
+
+.other-card-img {
+  position: relative;
+  aspect-ratio: 3 / 4;
+  display: flex;
+  align-items: flex-end;
+  overflow: hidden;
+  transition: transform 0.3s var(--ease-out);
+}
+.other-card:hover .other-card-img { transform: scale(1.02); }
+
+/* Category backgrounds using photos */
+.other-card-img--yakigashi {
+  background: linear-gradient(160deg, rgba(6,6,6,0.3) 0%, rgba(6,6,6,0.75) 100%),
+              url('img/kogane_roll.jpg') center/cover no-repeat;
+}
+.other-card-img--tart {
+  background: linear-gradient(160deg, rgba(6,6,6,0.3) 0%, rgba(6,6,6,0.75) 100%),
+              url('img/deco/fruits_garden_tart.jpg') center/cover no-repeat;
+}
+.other-card-img--gelato {
+  background: linear-gradient(160deg, rgba(6,6,6,0.3) 0%, rgba(6,6,6,0.75) 100%),
+              url('img/photo_6.jpg') center/cover no-repeat;
+}
+.other-card-img--confiture {
+  background: linear-gradient(160deg, rgba(6,6,6,0.3) 0%, rgba(6,6,6,0.75) 100%),
+              url('img/photo_7.jpg') center/cover no-repeat;
+}
+
+.other-card-label-wrap {
+  padding: 20px 22px;
+  width: 100%;
+}
+
+.other-card-en {
+  font-family: var(--font-en);
+  font-size: 0.72rem;
+  letter-spacing: 0.3em;
+  color: var(--accent);
+  text-transform: uppercase;
+  margin-bottom: 6px;
+}
+
+.other-card-name {
+  font-family: var(--font-serif-jp);
+  font-weight: 400;
+  font-size: 1.15rem;
+  letter-spacing: 0.12em;
+  color: var(--text-main);
+}
+
+.other-note {
+  text-align: center;
+  font-size: 0.84rem;
+  color: var(--text-muted);
+  line-height: 1.85;
+}
+
+.other-ig-link {
+  color: var(--accent);
+  transition: opacity 0.3s;
+}
+.other-ig-link:hover { opacity: 0.75; }
+
+
+/* ============================================================
+   RESPONSIVE — Tablet
+   ============================================================ */
+@media (max-width: 1024px) {
+  .deco-grid { grid-template-columns: repeat(2, 1fr); }
+  .other-grid { grid-template-columns: repeat(2, 1fr); }
+  .other-card-img { aspect-ratio: 4 / 3; }
+}
+
+/* ============================================================
+   RESPONSIVE — Mobile
+   ============================================================ */
+@media (max-width: 767px) {
+  .page-hero {
+    padding-top: calc(var(--header-h) + 56px);
+    padding-bottom: 56px;
+  }
+
+  .deco-grid {
+    grid-template-columns: 1fr;
+    gap: 20px;
+  }
+  .deco-card-img { aspect-ratio: 3 / 2; }
+
+  .other-grid { grid-template-columns: repeat(2, 1fr); gap: 12px; }
+  .other-card-img { aspect-ratio: 1 / 1; }
+}
+
+@media (max-width: 480px) {
+  .other-grid { grid-template-columns: 1fr; }
+  .other-card-img { aspect-ratio: 3 / 2; }
+}

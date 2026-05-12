@@ -1,0 +1,402 @@
+<!DOCTYPE html>
+<html lang="ja">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>メニュー | 菓人 KICHISE</title>
+  <meta name="description" content="菓人KICHISEのデコレーションケーキ・焼菓子・タルト・ジェラート・コンフィチュールのご案内。完全自社製造・店頭限定販売。">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,300;0,400;0,600;1,300;1,400&family=Noto+Sans+JP:wght@300;400;500&family=Noto+Serif+JP:wght@300;400;600&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="index.css">
+  <link rel="stylesheet" href="menu.css">
+</head>
+
+<body>
+
+  <!-- ========== HEADER ========== -->
+  <header id="header" class="scrolled">
+    <div class="header-inner">
+      <a href="index.html" class="logo">
+        <span class="logo-en">Patisserie</span>
+        <span class="logo-jp">菓人 KICHISE</span>
+      </a>
+
+      <nav class="global-nav" id="globalNav">
+        <ul>
+          <li><a href="index.html#concept" class="nav-link">こだわり</a></li>
+          <li><a href="index.html#story" class="nav-link">店主について</a></li>
+          <li><a href="menu.html" class="nav-link nav-link--active">メニュー</a></li>
+          <li><a href="index.html#access" class="nav-link">アクセス</a></li>
+          <li><a href="index.html#recruit" class="nav-link">求人</a></li>
+        </ul>
+      </nav>
+
+      <div class="header-right">
+        <a href="tel:047-447-8833" class="btn-tel">
+          <svg xmlns="http://www.w3.org/2000/svg" width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+            <path d="M22 16.92v3a2 2 0 0 1-2.18 2 19.79 19.79 0 0 1-8.63-3.07A19.5 19.5 0 0 1 4.21 12 19.79 19.79 0 0 1 1.14 3.4 2 2 0 0 1 3.11 1h3a2 2 0 0 1 2 1.72c.127.96.361 1.903.7 2.81a2 2 0 0 1-.45 2.11L7.09 8.91a16 16 0 0 0 6 6l1.27-1.27a2 2 0 0 1 2.11-.45c.907.339 1.85.573 2.81.7A2 2 0 0 1 22 16.92z"/>
+          </svg>
+          <span class="tel-num">047-447-8833</span>
+        </a>
+        <button class="hamburger" id="hamburger" aria-label="メニューを開く" aria-expanded="false">
+          <span></span><span></span><span></span>
+        </button>
+      </div>
+    </div>
+  </header>
+
+  <!-- Mobile Overlay Nav -->
+  <div class="mobile-nav-overlay" id="mobileNav">
+    <nav>
+      <ul>
+        <li><a href="index.html#concept" class="mobile-nav-link">こだわり</a></li>
+        <li><a href="index.html#story" class="mobile-nav-link">店主について</a></li>
+        <li><a href="menu.html" class="mobile-nav-link">メニュー</a></li>
+        <li><a href="index.html#access" class="mobile-nav-link">アクセス</a></li>
+        <li><a href="index.html#recruit" class="mobile-nav-link">求人</a></li>
+      </ul>
+      <a href="tel:047-447-8833" class="mobile-tel">
+        <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+          <path d="M22 16.92v3a2 2 0 0 1-2.18 2 19.79 19.79 0 0 1-8.63-3.07A19.5 19.5 0 0 1 4.21 12 19.79 19.79 0 0 1 1.14 3.4 2 2 0 0 1 3.11 1h3a2 2 0 0 1 2 1.72c.127.96.361 1.903.7 2.81a2 2 0 0 1-.45 2.11L7.09 8.91a16 16 0 0 0 6 6l1.27-1.27a2 2 0 0 1 2.11-.45c.907.339 1.85.573 2.81.7A2 2 0 0 1 22 16.92z"/>
+        </svg>
+        047-447-8833
+      </a>
+    </nav>
+  </div>
+
+  <!-- ========== PAGE HERO ========== -->
+  <section class="page-hero">
+    <p class="page-hero-en">Menu</p>
+    <h1 class="page-hero-title">メニュー</h1>
+    <div class="silver-bar"></div>
+  </section>
+
+  <!-- ========== DECORATION CAKES ========== -->
+  <section class="section-deco">
+    <div class="container">
+      <div class="section-head reveal">
+        <p class="section-en">Decoration Cakes</p>
+        <h2 class="section-title">デコレーションケーキ</h2>
+        <div class="silver-bar"></div>
+      </div>
+      <p class="deco-note reveal">ご注文はお電話にて承っております。<a href="tel:047-447-8833" class="deco-tel">047-447-8833</a></p>
+
+      <div class="deco-grid">
+
+        <div class="deco-card reveal">
+          <div class="deco-card-img">
+            <img src="img/deco/mille_feuille.jpg" alt="アントルメ・ミルフィーユ">
+          </div>
+          <div class="deco-card-body">
+            <h3 class="deco-name">アントルメ・ミルフィーユ</h3>
+            <p class="deco-size">小サイズ 約12cm角 ／ 大サイズ 約15cm角</p>
+          </div>
+        </div>
+
+        <div class="deco-card reveal">
+          <div class="deco-card-img">
+            <img src="img/deco/ichigo_concerto.jpg" alt="いちごのコンチェルト">
+            <span class="deco-badge">季節限定</span>
+          </div>
+          <div class="deco-card-body">
+            <h3 class="deco-name">いちごのコンチェルト</h3>
+            <p class="deco-size">4号 ／ 5号 ／ 6号 ／ 7号</p>
+            <p class="deco-seasonal">1月中旬〜5月初旬頃</p>
+          </div>
+        </div>
+
+        <div class="deco-card reveal">
+          <div class="deco-card-img">
+            <img src="img/deco/strawberry_deco.jpg" alt="たっぷり苺のデコレーション">
+            <span class="deco-badge">季節限定</span>
+          </div>
+          <div class="deco-card-body">
+            <h3 class="deco-name">たっぷり苺のデコレーション</h3>
+            <p class="deco-size">4号 ／ 5号 ／ 6号 ／ 7号</p>
+            <p class="deco-seasonal">1月中旬〜5月初旬</p>
+          </div>
+        </div>
+
+        <div class="deco-card reveal">
+          <div class="deco-card-img">
+            <img src="img/deco/marron_tart.jpg" alt="マロンのタルト">
+          </div>
+          <div class="deco-card-body">
+            <h3 class="deco-name">マロンのタルト</h3>
+            <p class="deco-size">小サイズ φ約14cm ／ 大サイズ φ約17cm</p>
+          </div>
+        </div>
+
+        <div class="deco-card reveal">
+          <div class="deco-card-img">
+            <img src="img/deco/petit_chou_tart.jpg" alt="プチシューとベリーのタルト">
+          </div>
+          <div class="deco-card-body">
+            <h3 class="deco-name">プチシューとベリーのタルト</h3>
+            <p class="deco-size">小サイズ φ約14cm ／ 大サイズ φ約17cm</p>
+          </div>
+        </div>
+
+        <div class="deco-card reveal">
+          <div class="deco-card-img">
+            <img src="img/deco/strawberry_tart.jpg" alt="たっぷり苺のタルト">
+            <span class="deco-badge">季節限定</span>
+          </div>
+          <div class="deco-card-body">
+            <h3 class="deco-name">たっぷり苺のタルト</h3>
+            <p class="deco-size">小サイズ φ約14cm ／ 大サイズ φ約17cm</p>
+            <p class="deco-seasonal">1月中旬頃〜5月初旬頃</p>
+          </div>
+        </div>
+
+        <div class="deco-card reveal">
+          <div class="deco-card-img">
+            <img src="img/deco/fruits_garden_tart.jpg" alt="果物畑のタルト">
+          </div>
+          <div class="deco-card-body">
+            <h3 class="deco-name">果物畑のタルト</h3>
+            <p class="deco-size">小サイズ φ約14cm ／ 大サイズ φ約17cm</p>
+          </div>
+        </div>
+
+        <div class="deco-card reveal">
+          <div class="deco-card-img">
+            <img src="img/deco/rose_deco.jpg" alt="バラのデコレーション">
+          </div>
+          <div class="deco-card-body">
+            <h3 class="deco-name">バラのデコレーション</h3>
+            <p class="deco-size">5号 ／ 6号 ／ 7号</p>
+          </div>
+        </div>
+
+        <div class="deco-card reveal">
+          <div class="deco-card-img">
+            <img src="img/deco/marron_chantilly.jpg" alt="マロン・シャンティ">
+          </div>
+          <div class="deco-card-body">
+            <h3 class="deco-name">マロン・シャンティ</h3>
+            <p class="deco-size">5号 ／ 6号 ／ 7号</p>
+          </div>
+        </div>
+
+        <div class="deco-card reveal">
+          <div class="deco-card-img">
+            <img src="img/deco/chocolat_fruits.jpg" alt="ショコラ・フリュイ・シャンティ">
+          </div>
+          <div class="deco-card-body">
+            <h3 class="deco-name">ショコラ・フリュイ・シャンティ</h3>
+            <p class="deco-size">5号 ／ 6号 ／ 7号</p>
+          </div>
+        </div>
+
+        <div class="deco-card reveal">
+          <div class="deco-card-img">
+            <img src="img/deco/chocolat_chantilly.jpg" alt="ショコラ・シャンティー">
+          </div>
+          <div class="deco-card-body">
+            <h3 class="deco-name">ショコラ・シャンティー</h3>
+            <p class="deco-size">4号 ／ 5号 ／ 6号 ／ 7号</p>
+          </div>
+        </div>
+
+        <div class="deco-card reveal">
+          <div class="deco-card-img">
+            <img src="img/deco/framboise.jpg" alt="アントルメ・フランボワ">
+          </div>
+          <div class="deco-card-body">
+            <h3 class="deco-name">アントルメ・フランボワ</h3>
+            <p class="deco-size">4号 ／ 5号</p>
+          </div>
+        </div>
+
+        <div class="deco-card reveal">
+          <div class="deco-card-img">
+            <img src="img/deco/pistache.jpg" alt="アントルメ・ピスターシュ">
+          </div>
+          <div class="deco-card-body">
+            <h3 class="deco-name">アントルメ・ピスターシュ</h3>
+            <p class="deco-size">5号 ／ 6号</p>
+          </div>
+        </div>
+
+        <div class="deco-card reveal">
+          <div class="deco-card-img">
+            <img src="img/deco/fromage.jpg" alt="グラチネ・フロマージュ">
+          </div>
+          <div class="deco-card-body">
+            <h3 class="deco-name">グラチネ・フロマージュ</h3>
+            <p class="deco-size">4号 ／ 5号</p>
+          </div>
+        </div>
+
+        <div class="deco-card reveal">
+          <div class="deco-card-img">
+            <img src="img/deco/fraise.jpg" alt="アントルメ・フレーズ">
+          </div>
+          <div class="deco-card-body">
+            <h3 class="deco-name">アントルメ・フレーズ</h3>
+            <p class="deco-size">4号 ／ 5号</p>
+          </div>
+        </div>
+
+        <div class="deco-card reveal">
+          <div class="deco-card-img">
+            <img src="img/deco/cecile.jpg" alt="アントルメ・セシル">
+          </div>
+          <div class="deco-card-body">
+            <h3 class="deco-name">アントルメ・セシル</h3>
+            <p class="deco-size">4号 ／ 5号 ／ 6号</p>
+          </div>
+        </div>
+
+        <div class="deco-card reveal">
+          <div class="deco-card-img">
+            <img src="img/deco/fruits_chantilly.jpg" alt="フリュイ・シャンティ">
+          </div>
+          <div class="deco-card-body">
+            <h3 class="deco-name">フリュイ・シャンティ</h3>
+            <p class="deco-size">4号 ／ 5号 ／ 6号 ／ 7号</p>
+          </div>
+        </div>
+
+        <div class="deco-card reveal">
+          <div class="deco-card-img">
+            <img src="img/deco/fraise_chantilly.jpg" alt="フレーズ・シャンティ">
+          </div>
+          <div class="deco-card-body">
+            <h3 class="deco-name">フレーズ・シャンティ</h3>
+            <p class="deco-size">4号 ／ 5号 ／ 6号 ／ 7号</p>
+          </div>
+        </div>
+
+      </div><!-- /.deco-grid -->
+    </div>
+  </section>
+
+  <!-- ========== OTHER PRODUCTS ========== -->
+  <section class="section-other">
+    <div class="container">
+      <div class="section-head reveal">
+        <p class="section-en">Other Products</p>
+        <h2 class="section-title">その他の商品</h2>
+        <div class="silver-bar"></div>
+      </div>
+
+      <div class="other-grid">
+
+        <div class="other-card reveal">
+          <div class="other-card-img other-card-img--yakigashi">
+            <div class="other-card-label-wrap">
+              <p class="other-card-en">Baked Sweets</p>
+              <h3 class="other-card-name">焼菓子</h3>
+            </div>
+          </div>
+        </div>
+
+        <div class="other-card reveal">
+          <div class="other-card-img other-card-img--tart">
+            <div class="other-card-label-wrap">
+              <p class="other-card-en">Tart</p>
+              <h3 class="other-card-name">タルト</h3>
+            </div>
+          </div>
+        </div>
+
+        <div class="other-card reveal">
+          <div class="other-card-img other-card-img--gelato">
+            <div class="other-card-label-wrap">
+              <p class="other-card-en">Gelato</p>
+              <h3 class="other-card-name">ジェラート</h3>
+            </div>
+          </div>
+        </div>
+
+        <div class="other-card reveal">
+          <div class="other-card-img other-card-img--confiture">
+            <div class="other-card-label-wrap">
+              <p class="other-card-en">Confiture</p>
+              <h3 class="other-card-name">コンフィチュール</h3>
+            </div>
+          </div>
+        </div>
+
+      </div>
+
+      <p class="other-note reveal">※ 商品のラインナップは季節・仕入れ状況により変動します。最新情報は
+        <a href="https://www.instagram.com/kajin_kichise/" target="_blank" rel="noopener noreferrer" class="other-ig-link">Instagram</a>
+        にてご確認ください。
+      </p>
+    </div>
+  </section>
+
+  <!-- ========== FOOTER ========== -->
+  <footer class="footer">
+    <div class="footer-inner container">
+      <div class="footer-logo">
+        <p class="footer-logo-en">Patisserie</p>
+        <p class="footer-logo-jp">菓人 KICHISE</p>
+      </div>
+
+      <div class="footer-nav">
+        <ul>
+          <li><a href="index.html#concept">こだわり</a></li>
+          <li><a href="index.html#story">店主について</a></li>
+          <li><a href="menu.html">メニュー</a></li>
+          <li><a href="index.html#access">アクセス</a></li>
+          <li><a href="index.html#recruit">求人</a></li>
+        </ul>
+      </div>
+
+      <div class="footer-info">
+        <p>
+          <a href="tel:047-447-8833" class="footer-tel">
+            <svg xmlns="http://www.w3.org/2000/svg" width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+              <path d="M22 16.92v3a2 2 0 0 1-2.18 2 19.79 19.79 0 0 1-8.63-3.07A19.5 19.5 0 0 1 4.21 12 19.79 19.79 0 0 1 1.14 3.4 2 2 0 0 1 3.11 1h3a2 2 0 0 1 2 1.72c.127.96.361 1.903.7 2.81a2 2 0 0 1-.45 2.11L7.09 8.91a16 16 0 0 0 6 6l1.27-1.27a2 2 0 0 1 2.11-.45c.907.339 1.85.573 2.81.7A2 2 0 0 1 22 16.92z"/>
+            </svg>
+            047-447-8833
+          </a>
+        </p>
+        <p class="footer-address">〒274-0807 千葉県船橋市咲が丘４丁目１−２</p>
+        <p class="footer-hours">10:00〜18:30 &ensp;／&ensp; 定休日：水曜日（火曜不定休）</p>
+      </div>
+
+      <p class="footer-copy">&copy; 2026 菓人 KICHISE. All Rights Reserved.</p>
+    </div>
+  </footer>
+
+  <script>
+    const hamburger = document.getElementById('hamburger');
+    const mobileNav = document.getElementById('mobileNav');
+    const mobileLinks = document.querySelectorAll('.mobile-nav-link');
+
+    function toggleMenu(open) {
+      hamburger.setAttribute('aria-expanded', open);
+      hamburger.classList.toggle('active', open);
+      mobileNav.classList.toggle('open', open);
+      document.body.classList.toggle('nav-open', open);
+    }
+
+    hamburger.addEventListener('click', () => {
+      const isOpen = hamburger.getAttribute('aria-expanded') === 'true';
+      toggleMenu(!isOpen);
+    });
+
+    mobileLinks.forEach(link => link.addEventListener('click', () => toggleMenu(false)));
+    document.querySelector('.mobile-tel').addEventListener('click', () => toggleMenu(false));
+
+    const revealEls = document.querySelectorAll('.reveal');
+    const revealObserver = new IntersectionObserver((entries) => {
+      entries.forEach(entry => {
+        if (entry.isIntersecting) {
+          entry.target.classList.add('revealed');
+          revealObserver.unobserve(entry.target);
+        }
+      });
+    }, { threshold: 0.08, rootMargin: '0px 0px -30px 0px' });
+    revealEls.forEach(el => revealObserver.observe(el));
+  </script>
+
+</body>
+</html>
