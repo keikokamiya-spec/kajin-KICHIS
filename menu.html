@@ -19,8 +19,7 @@
   <header id="header" class="scrolled">
     <div class="header-inner">
       <a href="index.html" class="logo">
-        <span class="logo-en">Patisserie</span>
-        <span class="logo-jp">菓人 KICHISE</span>
+        <img src="img/logo.jpg" alt="菓人 KICHISE" class="logo-img">
       </a>
 
       <nav class="global-nav" id="globalNav">
@@ -287,10 +286,28 @@
       <div class="other-grid">
 
         <div class="other-card reveal">
+          <div class="other-card-img other-card-img--petit-gateau">
+            <div class="other-card-label-wrap">
+              <p class="other-card-en">Petit Gateau</p>
+              <h3 class="other-card-name">プチガトー</h3>
+            </div>
+          </div>
+        </div>
+
+        <div class="other-card reveal">
           <div class="other-card-img other-card-img--yakigashi">
             <div class="other-card-label-wrap">
               <p class="other-card-en">Baked Sweets</p>
               <h3 class="other-card-name">焼菓子</h3>
+            </div>
+          </div>
+        </div>
+
+        <div class="other-card reveal">
+          <div class="other-card-img other-card-img--chocolat">
+            <div class="other-card-label-wrap">
+              <p class="other-card-en">Chocolat</p>
+              <h3 class="other-card-name">ショコラ</h3>
             </div>
           </div>
         </div>
@@ -335,8 +352,7 @@
   <footer class="footer">
     <div class="footer-inner container">
       <div class="footer-logo">
-        <p class="footer-logo-en">Patisserie</p>
-        <p class="footer-logo-jp">菓人 KICHISE</p>
+        <img src="img/logo.jpg" alt="菓人 KICHISE" class="footer-logo-img">
       </div>
 
       <div class="footer-nav">
@@ -385,6 +401,92 @@
 
     mobileLinks.forEach(link => link.addEventListener('click', () => toggleMenu(false)));
     document.querySelector('.mobile-tel').addEventListener('click', () => toggleMenu(false));
+
+    const decoGrid = document.querySelector('.deco-grid');
+    const decoCards = Array.from(document.querySelectorAll('.deco-card'));
+    const mobileSliderMedia = window.matchMedia('(max-width: 767px)');
+    let decoSliders = null;
+
+    function createDecoSlider(title, cards) {
+      const slider = document.createElement('section');
+      slider.className = 'deco-slider';
+
+      const heading = document.createElement('h3');
+      heading.className = 'deco-slider-title';
+      heading.textContent = title;
+
+      const viewport = document.createElement('div');
+      viewport.className = 'deco-slider-viewport';
+
+      const track = document.createElement('div');
+      track.className = 'deco-slider-track';
+
+      const controls = document.createElement('div');
+      controls.className = 'deco-slider-controls';
+
+      const count = document.createElement('span');
+      count.className = 'deco-slider-count';
+
+      let current = 0;
+      function update() {
+        count.textContent = `${current + 1} / ${cards.length}`;
+      }
+
+      function syncCurrentFromScroll() {
+        const slideWidth = track.clientWidth || 1;
+        current = Math.round(track.scrollLeft / slideWidth);
+        current = Math.max(0, Math.min(current, cards.length - 1));
+        update();
+      }
+
+      track.addEventListener('scroll', () => requestAnimationFrame(syncCurrentFromScroll), { passive: true });
+
+      cards.forEach(card => track.appendChild(card));
+      viewport.appendChild(track);
+      controls.append(count);
+      slider.append(heading, viewport, controls);
+      update();
+
+      return slider;
+    }
+
+    function enableMobileDecoSliders() {
+      if (decoSliders) return;
+
+      const regularCards = decoCards.filter(card => !card.querySelector('.deco-badge'));
+      const seasonalCards = decoCards.filter(card => card.querySelector('.deco-badge'));
+      decoSliders = document.createElement('div');
+      decoSliders.className = 'deco-mobile-sliders';
+      decoSliders.append(
+        createDecoSlider('定番デコレーション', regularCards),
+        createDecoSlider('季節限定デコレーション', seasonalCards)
+      );
+      decoGrid.classList.add('deco-grid--mobile-enhanced');
+      decoGrid.after(decoSliders);
+    }
+
+    function disableMobileDecoSliders() {
+      if (!decoSliders) return;
+
+      decoCards.forEach(card => {
+        card.classList.remove('is-active');
+        decoGrid.appendChild(card);
+      });
+      decoSliders.remove();
+      decoSliders = null;
+      decoGrid.classList.remove('deco-grid--mobile-enhanced');
+    }
+
+    function syncDecoSliders() {
+      if (mobileSliderMedia.matches) {
+        enableMobileDecoSliders();
+      } else {
+        disableMobileDecoSliders();
+      }
+    }
+
+    syncDecoSliders();
+    mobileSliderMedia.addEventListener('change', syncDecoSliders);
 
     const revealEls = document.querySelectorAll('.reveal');
     const revealObserver = new IntersectionObserver((entries) => {

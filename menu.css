@@ -76,6 +76,9 @@
   overflow: hidden;
   transition: transform 0.3s var(--ease-out), box-shadow 0.3s;
 }
+.deco-card:nth-child(-n+9) { order: 2; }
+.deco-card:nth-child(n+10) { order: 1; }
+
 .deco-card:hover {
   transform: translateY(-4px);
   box-shadow: 0 14px 36px rgba(0,0,0,0.45);
@@ -139,6 +142,10 @@
   margin-top: 6px;
 }
 
+.deco-mobile-sliders {
+  display: none;
+}
+
 /* ============================================================
    OTHER PRODUCTS SECTION
    ============================================================ */
@@ -149,7 +156,7 @@
 
 .other-grid {
   display: grid;
-  grid-template-columns: repeat(4, 1fr);
+  grid-template-columns: repeat(6, 1fr);
   gap: 16px;
   margin-bottom: 48px;
 }
@@ -170,13 +177,21 @@
 .other-card:hover .other-card-img { transform: scale(1.02); }
 
 /* Category backgrounds using photos */
+.other-card-img--petit-gateau {
+  background: linear-gradient(160deg, rgba(6,6,6,0.3) 0%, rgba(6,6,6,0.75) 100%),
+              url('img/petit-gateau.jpg') center/cover no-repeat;
+}
 .other-card-img--yakigashi {
   background: linear-gradient(160deg, rgba(6,6,6,0.3) 0%, rgba(6,6,6,0.75) 100%),
-              url('img/kogane_roll.jpg') center/cover no-repeat;
+              url('img/yakigasi.png') center/cover no-repeat;
+}
+.other-card-img--chocolat {
+  background: linear-gradient(160deg, rgba(6,6,6,0.3) 0%, rgba(6,6,6,0.75) 100%),
+              url('img/chocolat.png') center/cover no-repeat;
 }
 .other-card-img--tart {
   background: linear-gradient(160deg, rgba(6,6,6,0.3) 0%, rgba(6,6,6,0.75) 100%),
-              url('img/deco/fruits_garden_tart.jpg') center/cover no-repeat;
+              url('img/tart-showcase.jpg') center/cover no-repeat;
 }
 .other-card-img--gelato {
   background: linear-gradient(160deg, rgba(6,6,6,0.3) 0%, rgba(6,6,6,0.75) 100%),
@@ -184,7 +199,7 @@
 }
 .other-card-img--confiture {
   background: linear-gradient(160deg, rgba(6,6,6,0.3) 0%, rgba(6,6,6,0.75) 100%),
-              url('img/photo_7.jpg') center/cover no-repeat;
+              url('img/confiture.jpg') center/cover no-repeat;
 }
 
 .other-card-label-wrap {
@@ -241,10 +256,63 @@
     padding-bottom: 56px;
   }
 
-  .deco-grid {
-    grid-template-columns: 1fr;
-    gap: 20px;
+  .deco-grid--mobile-enhanced {
+    display: none;
   }
+
+  .deco-mobile-sliders {
+    display: grid;
+    gap: 32px;
+  }
+
+  .deco-slider {
+    display: grid;
+    gap: 16px;
+  }
+
+  .deco-slider-title {
+    font-family: var(--font-serif-jp);
+    font-size: 1.08rem;
+    font-weight: 400;
+    color: var(--text-main);
+    letter-spacing: 0.1em;
+    text-align: center;
+  }
+
+  .deco-slider-viewport {
+    overflow: hidden;
+  }
+
+  .deco-slider-track {
+    display: flex;
+    overflow-x: auto;
+    scroll-snap-type: x mandatory;
+    scroll-behavior: smooth;
+    -webkit-overflow-scrolling: touch;
+    scrollbar-width: none;
+  }
+
+  .deco-slider-track::-webkit-scrollbar {
+    display: none;
+  }
+
+  .deco-slider-viewport .deco-card {
+    flex: 0 0 100%;
+    scroll-snap-align: center;
+  }
+
+  .deco-slider-controls {
+    text-align: center;
+  }
+
+  .deco-slider-count {
+    min-width: 54px;
+    font-family: var(--font-en);
+    color: var(--text-muted);
+    letter-spacing: 0.08em;
+    text-align: center;
+  }
+
   .deco-card-img { aspect-ratio: 3 / 2; }
 
   .other-grid { grid-template-columns: repeat(2, 1fr); gap: 12px; }

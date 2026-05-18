@@ -147,6 +147,11 @@ a   { text-decoration: none; color: inherit; }
   gap: 5px;
   flex-shrink: 0;
 }
+.logo-img {
+  height: 40px;
+  width: auto;
+  object-fit: contain;
+}
 .logo-en {
   font-family: var(--font-en);
   font-size: 0.65rem;
@@ -384,113 +389,88 @@ body.nav-open { overflow: hidden; }
    CONCEPT
    ============================================================ */
 .section-concept {
+  position: relative;
   padding: var(--section-py) 0;
-  background: var(--bg-secondary);
+  background:
+    linear-gradient(rgba(30, 28, 28, 0.86), rgba(30, 28, 28, 0.86)),
+    url('img/concept-bg.jpg') center / cover no-repeat;
+  background-attachment: fixed;
 }
 
 .concept-grid {
   display: grid;
-  grid-template-columns: repeat(3, 1fr);
-  gap: 1px;
-  background: var(--border);
+  grid-template-columns: repeat(2, minmax(0, 1fr));
+  gap: 28px;
+  background: transparent;
 }
 
 .concept-card {
-  background: var(--bg-card);
-  padding: 52px 36px;
+  background: transparent;
+  padding: 18% 17%;
   position: relative;
-  transition: background 0.3s;
+  aspect-ratio: 1 / 1;
+  min-height: 420px;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  text-align: center;
+  transition: transform 0.3s ease;
 }
-.concept-card:hover { background: #444242; }
+.concept-card:hover { transform: translateY(-3px); }
+
+.concept-card::before {
+  content: "";
+  position: absolute;
+  inset: 0;
+  background: url('img/concept-frame.png') center / contain no-repeat;
+  opacity: 0.42;
+  pointer-events: none;
+}
+
+.concept-card::after {
+  content: "";
+  position: absolute;
+  inset: 17%;
+  background: rgba(30, 28, 28, 0.28);
+  clip-path: polygon(30% 0, 70% 0, 100% 30%, 100% 70%, 70% 100%, 30% 100%, 0 70%, 0 30%);
+  pointer-events: none;
+}
+
+.concept-card > * {
+  position: relative;
+  z-index: 2;
+  width: 100%;
+  max-width: 68%;
+  transform: translateY(-24px);
+}
 
 .concept-num {
   font-family: var(--font-en);
-  font-size: 2.8rem;
+  font-size: 2.35rem;
   font-weight: 300;
   color: var(--border-lt);
   line-height: 1;
-  margin-bottom: 20px;
+  margin-bottom: 16px;
   letter-spacing: 0.05em;
 }
 
 .concept-card-title {
   font-family: var(--font-serif-jp);
   font-weight: 400;
-  font-size: 1.05rem;
-  line-height: 1.75;
+  font-size: 1rem;
+  line-height: 1.65;
   letter-spacing: 0.07em;
   color: var(--text-main);
-  margin-bottom: 18px;
-  padding-bottom: 18px;
+  margin-bottom: 14px;
+  padding-bottom: 14px;
   border-bottom: 1px solid var(--border);
 }
 
 .concept-card-text {
-  font-size: 0.855rem;
+  font-size: 0.8rem;
   color: var(--text-sub);
-  line-height: 2;
-}
-
-
-/* ============================================================
-   INSTAGRAM
-   ============================================================ */
-.section-instagram {
-  position: relative;
-  padding: var(--section-py) 0;
-  overflow: hidden;
-}
-
-.instagram-bg-wrap {
-  position: absolute;
-  inset: 0;
-  z-index: 0;
-}
-.instagram-bg {
-  width: 100%;
-  height: 100%;
-  object-fit: cover;
-}
-.instagram-overlay {
-  position: absolute;
-  inset: 0;
-  background: rgba(30, 28, 28, 0.84);
-}
-
-.instagram-inner {
-  position: relative;
-  z-index: 1;
-  text-align: center;
-}
-
-.section-head.light .section-en   { color: var(--accent); }
-.section-head.light .section-title { color: var(--text-main); }
-
-.instagram-lead {
-  font-family: var(--font-serif-jp);
-  font-weight: 300;
-  font-size: 1rem;
-  color: var(--text-sub);
-  line-height: 2.1;
-  margin-bottom: 44px;
-  letter-spacing: 0.05em;
-}
-
-.btn-instagram {
-  display: inline-flex;
-  align-items: center;
-  gap: 12px;
-  font-family: var(--font-sans-jp);
-  font-size: 0.9rem;
-  letter-spacing: 0.1em;
-  color: var(--bg-secondary);
-  background: var(--accent-lt);
-  padding: 16px 44px;
-  border-radius: var(--radius);
-  transition: background 0.3s, color 0.3s;
-}
-.btn-instagram:hover {
-  background: var(--accent-bright);
+  line-height: 1.85;
 }
 
 
@@ -784,6 +764,12 @@ body.nav-open { overflow: hidden; }
   gap: 40px;
 }
 
+.footer-logo-img {
+  height: 50px;
+  width: auto;
+  object-fit: contain;
+  margin-bottom: 10px;
+}
 .footer-logo-en {
   font-family: var(--font-en);
   font-size: 0.7rem;
@@ -859,7 +845,12 @@ body.nav-open { overflow: hidden; }
   .tel-num    { display: none; }
   .btn-tel    { padding: 8px 14px; }
 
-  .concept-grid { grid-template-columns: 1fr 1fr; }
+  .concept-grid { grid-template-columns: 1fr 1fr; gap: 22px; }
+  .concept-card { min-height: 360px; padding: 17% 16%; }
+  .concept-card > * { max-width: 74%; transform: translateY(-18px); }
+  .concept-num { font-size: 2.1rem; margin-bottom: 12px; }
+  .concept-card-title { font-size: 0.94rem; line-height: 1.55; margin-bottom: 12px; padding-bottom: 12px; }
+  .concept-card-text { font-size: 0.76rem; line-height: 1.75; }
 
   .story-grid {
     grid-template-columns: 1fr;
@@ -898,8 +889,17 @@ body.nav-open { overflow: hidden; }
   .section-title  { font-size: 1.45rem; }
   .section-head   { margin-bottom: 48px; }
 
-  .concept-grid { grid-template-columns: 1fr; background: var(--bg-secondary); gap: 1px; }
-  .concept-card { padding: 40px 24px; }
+  .section-concept { background-attachment: scroll; }
+  .concept-grid { grid-template-columns: 1fr; background: transparent; gap: 22px; }
+  .concept-card {
+    aspect-ratio: 1 / 1;
+    min-height: 0;
+    padding: 20% 17%;
+  }
+  .concept-card > * { max-width: 76%; transform: translateY(-14px); }
+  .concept-num { font-size: 2rem; margin-bottom: 12px; }
+  .concept-card-title { font-size: 0.95rem; line-height: 1.55; margin-bottom: 12px; padding-bottom: 12px; }
+  .concept-card-text { font-size: 0.76rem; line-height: 1.75; }
 
   .gallery-item { width: 270px; }
   @keyframes gallery-scroll {
@@ -927,6 +927,83 @@ body.nav-open { overflow: hidden; }
    ============================================================ */
 @media (max-width: 480px) {
   .hero-title { font-size: 1.45rem; }
-  .btn-instagram,
   .btn-recruit { font-size: 0.82rem; padding: 14px 28px; }
+}
+
+/* ============================================================
+   FIXED INSTAGRAM BUTTON
+   ============================================================ */
+.fixed-instagram-btn {
+  position: fixed;
+  bottom: 30px;
+  right: 30px;
+  width: 132px;
+  height: 99px;
+  border-radius: 0;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  transition: transform 0.3s ease;
+  z-index: 100;
+  padding: 0;
+  border: none;
+  background: transparent;
+  cursor: pointer;
+}
+
+.fixed-instagram-btn::before {
+  content: attr(data-tooltip);
+  position: absolute;
+  right: 0;
+  bottom: calc(100% + 12px);
+  width: max-content;
+  max-width: 240px;
+  padding: 8px 12px;
+  border-radius: 4px;
+  background: rgba(20, 18, 16, 0.9);
+  color: #fff;
+  font-size: 0.82rem;
+  line-height: 1.4;
+  letter-spacing: 0;
+  opacity: 0;
+  pointer-events: none;
+  transform: translateY(6px);
+  transition: opacity 0.25s ease, transform 0.25s ease;
+  white-space: nowrap;
+}
+
+.fixed-instagram-btn:hover::before,
+.fixed-instagram-btn:focus-visible::before {
+  opacity: 1;
+  transform: translateY(0);
+}
+
+.fixed-instagram-btn:hover {
+  transform: scale(1.1);
+}
+
+.instagram-icon {
+  width: 100%;
+  height: 100%;
+  border-radius: 0;
+  object-fit: contain;
+  filter: drop-shadow(0 2px 4px rgba(0, 0, 0, 0.1));
+}
+
+@media (max-width: 768px) {
+  .fixed-instagram-btn {
+    width: 112px;
+    height: 84px;
+    bottom: 25px;
+    right: 25px;
+  }
+}
+
+@media (max-width: 480px) {
+  .fixed-instagram-btn {
+    width: 96px;
+    height: 72px;
+    bottom: 20px;
+    right: 20px;
+  }
 }
