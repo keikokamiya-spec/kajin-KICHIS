@@ -67,7 +67,7 @@
   <!-- ========== HERO ========== -->
   <section class="hero" id="top">
     <div class="hero-bg-wrap">
-      <img src="img/store_exterior.jpg" alt="菓人KICHISE 外観" class="hero-bg">
+      <img src="img/top1.png" alt="菓人KICHISE 外観" class="hero-bg" id="heroSlideshow">
       <div class="hero-overlay"></div>
     </div>
     <div class="hero-content">
@@ -245,10 +245,42 @@
 
         <div class="access-map-wrap">
           <iframe
-            src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3240.5!2d140.0!3d35.73!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x60187f3b6e000001%3A0x0!2z5Y2x6JGJ55yM6Ih_5qmL5biC5ZCT44GM5LiD77yU5LiB55uu77yR4oiS77yS!5e0!3m2!1sja!2sjp!4v1"
+            src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3237.793256633968!2d140.0228550757911!3d35.755885972563284!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x60227f79aa494c71%3A0xd7bfbddccd49646d!2z6I-T5Lq6IEtJQ0hJU0U!5e0!3m2!1sja!2sjp!4v1779688783308!5m2!1sja!2sjp"
             width="100%" height="100%" style="border:0;" allowfullscreen="" loading="lazy"
             referrerpolicy="no-referrer-when-downgrade"
             title="菓人KICHISE 地図"></iframe>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ========== BUSINESS CALENDAR ========== -->
+  <section id="calendar" class="section-calendar">
+    <div class="container">
+      <div class="section-head reveal">
+        <p class="section-en">Business Calendar</p>
+        <h2 class="section-title">営業日カレンダー</h2>
+        <div class="silver-bar"></div>
+      </div>
+
+      <div class="calendar-inner reveal">
+        <p class="calendar-lead">定休日・臨時休業・営業時間変更はこちらからご確認ください。</p>
+        <div class="calendar-card">
+          <div class="calendar-frame">
+            <iframe
+              src="ここにGoogleカレンダーの埋め込みURL"
+              style="border:0;"
+              width="100%"
+              height="600"
+              frameborder="0"
+              scrolling="no"
+              title="菓人KICHISE 営業日カレンダー"></iframe>
+          </div>
+          <ul class="calendar-legend" aria-label="営業日カレンダー凡例">
+            <li><span class="legend-dot legend-closed"></span>定休日</li>
+            <li><span class="legend-dot legend-special"></span>臨時休業</li>
+            <li><span class="legend-dot legend-short"></span>時短営業</li>
+          </ul>
         </div>
       </div>
     </div>
@@ -338,6 +370,56 @@
     });
 
     document.querySelector('.mobile-tel').addEventListener('click', () => toggleMenu(false));
+
+    // ---- Hero slideshow ----
+    const heroSlideshow = document.getElementById('heroSlideshow');
+    const heroImages = [
+      'img/top1.png',
+      'img/IMG_20240903_0002.jpg',
+      'img/top3.jpg',
+      'img/IMGP3327.JPG',
+      'img/confiture.jpg'
+    ];
+    const finalHeroImage = heroImages[0];
+    const shuffleHeroImages = heroImages.slice(1);
+    const slideDuration = 2600;
+    const fadeDuration = 700;
+
+    function shuffleImages(images) {
+      const shuffled = [...images];
+      for (let i = shuffled.length - 1; i > 0; i--) {
+        const j = Math.floor(Math.random() * (i + 1));
+        [shuffled[i], shuffled[j]] = [shuffled[j], shuffled[i]];
+      }
+      return shuffled;
+    }
+
+    heroImages.forEach(src => {
+      const image = new Image();
+      image.src = src;
+    });
+
+    function showHeroSequence(sequence, index = 0) {
+      if (index >= sequence.length) {
+        heroSlideshow.classList.add('is-fading');
+        setTimeout(() => {
+          heroSlideshow.src = finalHeroImage;
+          heroSlideshow.classList.remove('is-fading');
+        }, fadeDuration);
+        return;
+      }
+
+      heroSlideshow.classList.add('is-fading');
+      setTimeout(() => {
+        heroSlideshow.src = sequence[index];
+        heroSlideshow.classList.remove('is-fading');
+        setTimeout(() => showHeroSequence(sequence, index + 1), slideDuration);
+      }, fadeDuration);
+    }
+
+    window.addEventListener('load', () => {
+      setTimeout(() => showHeroSequence(shuffleImages(shuffleHeroImages)), slideDuration);
+    });
 
     // ---- Header scroll effect ----
     const header = document.getElementById('header');
