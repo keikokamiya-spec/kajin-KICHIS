@@ -980,6 +980,15 @@ body.nav-open { overflow: hidden; }
   .section-title  { font-size: 1.45rem; }
   .section-head   { margin-bottom: 48px; }
 
+  .section-story,
+  .section-gallery,
+  .section-access,
+  .section-calendar,
+  .section-recruit {
+    content-visibility: auto;
+    contain-intrinsic-size: 820px;
+  }
+
   .section-concept { background-attachment: scroll; }
   .concept-grid { grid-template-columns: 1fr; background: transparent; gap: 22px; }
   .concept-card {
@@ -993,9 +1002,16 @@ body.nav-open { overflow: hidden; }
   .concept-card-text { font-size: 0.76rem; line-height: 1.75; }
 
   .gallery-item { width: 270px; }
-  @keyframes gallery-scroll {
-    0%   { transform: translateX(0); }
-    100% { transform: translateX(calc(-284px * 8)); }
+  .gallery-slider {
+    overflow-x: auto;
+    -webkit-overflow-scrolling: touch;
+    scrollbar-width: none;
+  }
+  .gallery-slider::-webkit-scrollbar {
+    display: none;
+  }
+  .gallery-track {
+    animation: none;
   }
 
   .story-img { aspect-ratio: 4 / 3; }
