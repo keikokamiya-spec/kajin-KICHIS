@@ -75,6 +75,8 @@
   border-radius: var(--radius);
   overflow: hidden;
   transition: transform 0.3s var(--ease-out), box-shadow 0.3s;
+  content-visibility: auto;
+  contain-intrinsic-size: 430px;
 }
 .deco-card:nth-child(-n+9) { order: 2; }
 .deco-card:nth-child(n+10) { order: 1; }
@@ -159,11 +161,61 @@
   grid-template-columns: repeat(6, 1fr);
   gap: 16px;
   margin-bottom: 48px;
+  isolation: isolate;
+  overflow: visible;
+  perspective: 900px;
+}
+
+.other-grid.has-active {
+  grid-template-columns: minmax(0, min(420px, 100%));
+  justify-content: center;
 }
 
 .other-card {
+  position: relative;
   border-radius: var(--radius);
   overflow: hidden;
+  content-visibility: auto;
+  contain-intrinsic-size: 260px;
+  cursor: pointer;
+  scroll-margin-top: calc(var(--header-h) + 24px);
+  transform-style: preserve-3d;
+  transition: opacity 0.3s ease, transform 0.3s var(--ease-out), box-shadow 0.3s ease, filter 0.3s ease;
+  will-change: transform;
+}
+
+.other-card:focus-visible {
+  outline: 1px solid var(--text-image);
+  outline-offset: 5px;
+}
+
+.other-grid.has-active .other-card:not(.is-active) {
+  display: none;
+}
+
+.other-card.is-active {
+  z-index: 2;
+  transform: scale(1.08);
+  box-shadow: 0 28px 60px rgba(0, 0, 0, 0.48);
+  animation: other-card-pop-spin 0.58s var(--ease-out) both;
+}
+
+@keyframes other-card-pop-spin {
+  0% {
+    opacity: 0;
+    transform: scale(0.58) rotateY(-90deg);
+  }
+  62% {
+    opacity: 1;
+    transform: scale(1.13) rotateY(18deg);
+  }
+  82% {
+    transform: scale(1.04) rotateY(-8deg);
+  }
+  100% {
+    opacity: 1;
+    transform: scale(1.08) rotateY(0deg);
+  }
 }
 
 .other-card-img {
@@ -173,36 +225,33 @@
   align-items: flex-end;
   overflow: hidden;
   transition: transform 0.3s var(--ease-out);
+  background: #111;
 }
 .other-card:hover .other-card-img { transform: scale(1.02); }
 
-/* Category backgrounds using photos */
-.other-card-img--petit-gateau {
-  background: linear-gradient(160deg, rgba(6,6,6,0.3) 0%, rgba(6,6,6,0.75) 100%),
-              url('img/petit-gateau.jpg') center/cover no-repeat;
+.other-card-img::after {
+  content: '';
+  position: absolute;
+  inset: 0;
+  background: linear-gradient(160deg, rgba(6,6,6,0.3) 0%, rgba(6,6,6,0.75) 100%);
+  pointer-events: none;
 }
-.other-card-img--yakigashi {
-  background: linear-gradient(160deg, rgba(6,6,6,0.3) 0%, rgba(6,6,6,0.75) 100%),
-              url('img/yakigasi.png') center/cover no-repeat;
+
+.other-card-photo {
+  position: absolute;
+  inset: 0;
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  transition: transform 0.6s var(--ease-out);
 }
-.other-card-img--chocolat {
-  background: linear-gradient(160deg, rgba(6,6,6,0.3) 0%, rgba(6,6,6,0.75) 100%),
-              url('img/chocolat.png') center/cover no-repeat;
-}
-.other-card-img--tart {
-  background: linear-gradient(160deg, rgba(6,6,6,0.3) 0%, rgba(6,6,6,0.75) 100%),
-              url('img/tart-showcase.jpg') center/cover no-repeat;
-}
-.other-card-img--gelato {
-  background: linear-gradient(160deg, rgba(6,6,6,0.3) 0%, rgba(6,6,6,0.75) 100%),
-              url('img/photo_6.jpg') center/cover no-repeat;
-}
-.other-card-img--confiture {
-  background: linear-gradient(160deg, rgba(6,6,6,0.3) 0%, rgba(6,6,6,0.75) 100%),
-              url('img/confiture.jpg') center/cover no-repeat;
+.other-card:hover .other-card-photo {
+  transform: scale(1.06);
 }
 
 .other-card-label-wrap {
+  position: relative;
+  z-index: 1;
   padding: 20px 22px;
   width: 100%;
 }
@@ -322,4 +371,26 @@
 @media (max-width: 480px) {
   .other-grid { grid-template-columns: 1fr; }
   .other-card-img { aspect-ratio: 3 / 2; }
+  .other-card.is-active {
+    transform: scale(1.04);
+    animation-name: other-card-pop-spin-mobile;
+  }
+}
+
+@keyframes other-card-pop-spin-mobile {
+  0% {
+    opacity: 0;
+    transform: scale(0.58) rotateY(-90deg);
+  }
+  62% {
+    opacity: 1;
+    transform: scale(1.08) rotateY(18deg);
+  }
+  82% {
+    transform: scale(1.01) rotateY(-8deg);
+  }
+  100% {
+    opacity: 1;
+    transform: scale(1.04) rotateY(0deg);
+  }
 }
